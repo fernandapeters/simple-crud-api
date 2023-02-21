@@ -1,2 +1,2 @@
 # simple-crud-api
-Trying out fastapi e some other libs.
+Trying out fastapi and some other libs.
