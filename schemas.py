@@ -1,10 +1,11 @@
 import uuid
 
 from pydantic import BaseModel
+from typing import Optional
 
 
 class Product(BaseModel):
-    id: int
+    id: Optional[uuid.UUID]
     name: str
     description: str
     price: float

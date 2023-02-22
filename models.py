@@ -11,7 +11,6 @@ class Product(database.Base):
     id = Column(UUID(as_uuid=True),
                 primary_key=True,
                 default=uuid.uuid4)
-                # server_default=sqlalchemy.text("uuid_generate_v4()"))
     name = Column(String)
     description = Column(String)
     price = Column(Float)
