@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, DECIMAL
 from sqlalchemy.dialects.postgresql import UUID
 
 import database
@@ -13,5 +13,5 @@ class Product(database.Base):
                 default=uuid.uuid4)
     name = Column(String)
     description = Column(String)
-    price = Column(Float)
+    price = Column(DECIMAL(10, 2))
     stock = Column(Integer)

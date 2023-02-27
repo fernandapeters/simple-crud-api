@@ -51,5 +51,23 @@ def read_product_by_id(product_id, db: Session = Depends(get_db)):
     return product
 
 
+@app.put("/products/{product_id}", response_model=schemas.Product)
+def update_product(product_id, product: schemas.Product, db: Session = Depends(get_db)):
+    product_updated = crud.update_product(db=db, product_id=product_id, product=product)
+    if product_updated is None:
+        raise HTTPException(404, f"Product with id {product_id} does not exists")
+
+    return product_updated
+
+
+@app.delete("/products/{product_id}", response_model=schemas.Product)
+def update_product(product_id, db: Session = Depends(get_db)):
+    product_deleted = crud.delete_product(db=db, product_id=product_id)
+    if product_deleted is None:
+        raise HTTPException(404, f"Product with id {product_id} does not exists")
+
+    return product_deleted
+
+
 if __name__ == '__main__':
     uvicorn.run(app, host="0.0.0.0", port=8000)

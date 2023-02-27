@@ -5,7 +5,7 @@ from typing import Optional
 
 
 class Product(BaseModel):
-    id: Optional[uuid.UUID]
+    id: Optional[uuid.UUID] = None
     name: str
     description: str
     price: float
