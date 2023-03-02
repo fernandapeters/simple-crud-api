@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, Integer, String, Float, DECIMAL
+from sqlalchemy import Column, Integer, String, DECIMAL
 from sqlalchemy.dialects.postgresql import UUID
 
 import database

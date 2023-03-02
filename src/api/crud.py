@@ -1,8 +1,12 @@
 import uuid
+import logging
 from sqlalchemy.orm import Session
 
 import models
 import schemas
+
+
+logger = logging.getLogger(__name__)
 
 
 def get_product(db: Session, product_id: uuid.UUID):
