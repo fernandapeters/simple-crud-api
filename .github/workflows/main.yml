@@ -20,5 +20,6 @@ jobs:
             sudo rm -rf simple-crud-api
             git clone git@github.com:fernandapeters/simple-crud-api.git
             cd simple-crud-api
+            echo "${{ secrets.DATABASE_URL }}" > .env
             sudo docker-compose build
             sudo docker-compose up -d
