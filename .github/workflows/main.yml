@@ -6,11 +6,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Deploy
+  test-n-deploy:
+    name: Test and deploy
     runs-on: ubuntu-latest
     steps:
-      - name: executing ssh commands using ssh key
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test with pytest
+        run: |
+          pytest
+        
+      - name: Deploy executing ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
