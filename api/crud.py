@@ -4,8 +4,8 @@ import logging
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 
-import models
-import schemas
+from . import models
+from . import schemas
 
 
 logger = logging.getLogger(__name__)

@@ -9,9 +9,9 @@ from typing import List
 from sqlalchemy.orm import Session
 from fastapi import FastAPI, Depends, HTTPException, Request
 
-import crud
-import schemas
-import database
+from . import crud
+from . import schemas
+from . import database
 
 
 logging.config.fileConfig('config/logging.conf', disable_existing_loggers=False)

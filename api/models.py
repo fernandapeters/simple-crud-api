@@ -3,7 +3,7 @@ import uuid
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy import Column, Integer, String, DECIMAL
 
-import database
+from . import database
 
 
 class Product(database.Base):
