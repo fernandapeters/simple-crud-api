@@ -23,7 +23,7 @@ def get_products(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Product).offset(skip).limit(limit).all()
 
 
-def create_product(db: Session, product: schemas.Product) -> bool:
+def create_product(db: Session, product: schemas.Product):
     id_ = product.id if product.id is not None else uuid.uuid4()
     logger.info(f"Registering product {product.name} with id {id_}.")
 
@@ -35,9 +35,9 @@ def create_product(db: Session, product: schemas.Product) -> bool:
         db.refresh(db_product)
     except SQLAlchemyError as e:
         logger.error(str(e.__dict__['orig']))
-        return False
+        return None
 
-    return True
+    return db_product
 
 
 def delete_product(db: Session, product_id: uuid.UUID):
